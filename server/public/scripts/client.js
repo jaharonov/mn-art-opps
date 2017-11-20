@@ -1,9 +1,13 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
 /// Routes ///
-myApp.config(function($routeProvider, $locationProvider) {
+myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
+  $mdThemingProvider.theme('default')
+    .primaryPalette('pink')
+    .accentPalette('lime')
+    .backgroundPalette('cyan');
   $routeProvider
     .when('/home', {
       templateUrl: '/views/templates/home.html',

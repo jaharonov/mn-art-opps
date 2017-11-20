@@ -4,9 +4,30 @@ var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
 // Mongoose Schema
+var ReviewSchema = new Schema ({
+    reviewName: {type: String, required: true},
+    reviewText: {type: String, required: true}
+});
+
+var RatingSchema = new Schema({
+    ratingName: { type: String, required: true },
+    ratingNumber: { type: Number, required: true }
+});
+
+var TodoSchema = new Schema({ 
+    todoName: {type: String, required: true},
+    todoDeadline: {type: Date, required: true},
+    todoComplete: {type: Boolean, required: true}
+});
+
+
 var UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    reviews:  [ReviewSchema],
+    ratings:  [RatingSchema],
+    todos:    [TodoSchema]
+
 });
 
 // Called before adding a new user to the DB. Encrypts password.
