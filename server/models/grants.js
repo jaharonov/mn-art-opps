@@ -2,13 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Mongoose Schema
-var GrantSchema = newSchema({
-    grantName: { type: String, required: true },
-    grantInfo: { type: String, required: true },
-    grantDeadline: { type: Date, required: true },
-    grantLocation: {type: String, required: true},
-    grantUrl: {type: String},
-    grantimageUrl: {type: String}
+var GrantSchema = new Schema({
+    name: String,
+    text: String,
+    deadline: Date,
+    location: String,
+    url: String,
+    imageurl: String
 });
 
 module.exports = mongoose.model('Grant', GrantSchema);

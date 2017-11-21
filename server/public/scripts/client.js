@@ -1,13 +1,13 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $mdThemingProvider.theme('default')
-    .primaryPalette('pink')
-    .accentPalette('lime')
-    .backgroundPalette('cyan');
+    .primaryPalette('teal')
+    .accentPalette('pink')
+    .backgroundPalette('grey');
   $routeProvider
     .when('/home', {
       templateUrl: '/views/templates/home.html',
@@ -26,11 +26,29 @@ myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
         }
       }
     })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController',
+    .when('/residencies', {
+      templateUrl: '/views/templates/residencies.html',
+      controller: 'ResController as rc',
       resolve: {
         getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/grants', {
+      templateUrl: '/views/templates/grants.html',
+      controller: 'GrantController as gc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/todo', {
+      templateUrl: '/views/templates/todo.html',
+      controller: 'UserController as uc',
+      resolve: {
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }

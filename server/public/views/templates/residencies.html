@@ -1,0 +1,46 @@
+<div layout="column" layout-align="center center" ng-cloak class="md-block">
+    
+    <md-content layout-padding class="inputs">
+        <div><h2>ADD A RESIDENCY</h2></div>
+        <div layout-gt-sm="row">
+            
+            <md-input-container>
+                <label>Residency Name</label>
+                <input ng-model="rc.residency.name">
+            </md-input-container>
+            <md-input-container>
+                <label>Location</label>
+                <input ng-model="rc.residency.location">
+            </md-input-container>
+            <md-input-container>
+                <label>Url</label>
+                <input ng-model="rc.residency.url">
+            </md-input-container>
+            <md-input-container>
+                <label>Image Url</label>
+                <input ng-model="rc.residency.imageurl">
+        </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-xs>
+            <!-- <div layout-gt-sm="row"> -->
+                <label>Info</label>
+                <textarea ng-model="rc.residency.info" md-maxlength="500" rows="6" md-select-on-focus></textarea>
+            <!-- </div> -->
+        </md-input-container>
+        <md-input-container>
+            <!-- <div layout-gt-sm="row"> -->
+                <label>Deadline</label>
+                <md-datepicker ng-model="rc.residency.deadline"></md-datepicker>
+            <!-- </div> -->
+        </md-input-container>
+        <br>
+        <div id="submit">
+        <md-button class="md-accent md-raised" ng-click="rc.addARes(rc.residency)">Submit</md-button>
+        </div>
+         {{rc.userObject.userName}} {{resObject}}
+    </md-content>
+</div>
+
+<div class="res col-md-6 col-lg-5 col-sm-7 col-xs-8 text-center" ng-repeat="res in rc.residency">
+     {{newRes}}
+    <br>

@@ -5,25 +5,25 @@ var SALT_WORK_FACTOR = 10;
 
 // Mongoose Schema
 var ReviewSchema = new Schema ({
-    reviewName: {type: String, required: true},
-    reviewText: {type: String, required: true}
+    name: String,
+    text: String
 });
 
 var RatingSchema = new Schema({
-    ratingName: { type: String, required: true },
-    ratingNumber: { type: Number, required: true }
+    name: String,
+    number: Number
 });
 
 var TodoSchema = new Schema({ 
-    todoName: {type: String, required: true},
-    todoDeadline: {type: Date, required: true},
-    todoComplete: {type: Boolean, required: true}
+    name: String,
+    deadline: Date,
+    complete: Boolean
 });
 
 
 var UserSchema = new Schema({
-    username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true},
+    username: String,
+    password: String,
     reviews:  [ReviewSchema],
     ratings:  [RatingSchema],
     todos:    [TodoSchema]

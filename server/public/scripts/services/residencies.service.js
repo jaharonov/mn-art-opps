@@ -3,4 +3,6 @@ myApp.service('ResService', function ($http, $location) {
     var self = this;
     self.resObject = {};
 
+    
+
 });

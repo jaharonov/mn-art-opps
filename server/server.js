@@ -12,7 +12,9 @@ var db = require('./modules/db.config.js');
 var indexRouter = require('./routes/index.router');
 var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
-
+var residenciesRouter = require('./routes/residencies.router.js');
+var grantsRouter = require('./routes/grants.router.js');
+var todoRouter = require('./routes/todo.router.js');
 var port = process.env.PORT || 5000;
 
 // Body parser middleware
@@ -32,7 +34,8 @@ app.use(passport.session());
 // Routes
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
-
+app.use('/residencies', residenciesRouter);
+app.use('/grants', grantsRouter);
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
 
