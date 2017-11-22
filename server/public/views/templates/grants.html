@@ -41,3 +41,14 @@
         </div>
     </md-content>
 </div>
+
+<div layout="row" layout-wrap layout-margin layout-align="center center">
+    <md-card flex="22" flex-sm="55" ng-repeat="grant in gc.grants" class="oppCards">
+        <img class="cardImage" src="https://pbs.twimg.com/media/DOeP0N_XcAM_lPd.jpg" class="md-card-image" alt="image caption">
+        <md-card-content>
+            <h2>{{grant.name}}</h2>
+            <p>{{grant.info}}</p>
+            <p>{{grant.location}}</p>
+            <p>{{grant.deadline | date}}</p>
+        </md-card-content>
+</div>

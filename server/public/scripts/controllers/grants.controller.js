@@ -32,15 +32,16 @@ myApp.controller('GrantController', function (UserService, $http) {
     //     })
     // }
 
-    // vm.getThings = function () {
-    //     $http.get('/info').then(function (response) {
-    //         vm.things = response.data;
-    //         vm.showDelete();
-    //         console.log(response);
-    //     }).catch(function (error) {
-    //         console.log('failure on GET route info.controller');
-    //     });
-    // }
-    // vm.getThings();
+
+    vm.getRes = function () {
+        $http.get('/grants').then(function (response) {
+            vm.grants = response.data;
+            // vm.showDelete();
+            console.log(response);
+        }).catch(function (error) {
+            console.log('failure on GET route grant controller');
+        });
+    }
+    vm.getRes();
 
 });

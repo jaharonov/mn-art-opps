@@ -5,6 +5,17 @@ var path = require('path');
 var mongoose = require('mongoose');
 var grantObject = require('../models/grants.js');
 
+router.get('/', function (req, res) {
+    grantObject.find({}, function (err, foundObjects) {
+        if (err) {
+            console.log('error', err);
+            res.sendStatus(500);
+        } else {
+            res.send(foundObjects);
+        }
+    });
+});
+
 router.post('/', function (req, res) {
     console.log('trying to post grant');
     if (req.isAuthenticated()) {

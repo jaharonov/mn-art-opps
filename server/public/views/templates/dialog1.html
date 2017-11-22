@@ -1,0 +1,11 @@
+<md-dialog>
+    {{res.hello}}
+    <div flex="22" flex-sm="55" ng-repeat="res in rc.residencies" class="oppCards" class="cards" aria-label="residencies">
+       
+        
+            <h2>{{res.name}}</h2>
+            <p>{{res.info}}</p>
+            <p>{{res.location}}</p>
+            <p>{{res.deadline | date}}</p>
+    </div>
+</md-dialog>

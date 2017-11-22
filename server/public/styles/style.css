@@ -3,7 +3,7 @@ body, html {
   padding: 0;
   font-family: sans-serif;
   font-size: 14px;
-  background-color: rgba(216, 214, 214, 0.74);
+ 
 }
 
 .instructions .container h1 {
@@ -22,7 +22,7 @@ body, html {
 }
 
 #container {
-  margin-top: 10px;
+ margin-top: 10px;
 }
 
 .container p{
@@ -96,4 +96,19 @@ li a:hover {
 
 #submit {
   float: right;
+}
+
+.cardImage {
+    
+    display: inline-block;
+    vertical-align: center;
+}
+
+md-card {
+  object-fit: contain;
+  width: 250px;
+  height: 400px;
+}
+.inputs {
+  background-color: lightgray;
 }

@@ -1,11 +1,11 @@
-myApp.controller('ResController', function (UserService, ResService, $http) {
+myApp.controller('ResController', function ($scope, UserService, ResService, $http, $mdDialog) {
     console.log('ResController created');
     var vm = this;
     vm.userService = UserService;
     vm.userObject = UserService.userObject;
-    // vm.resService = ResService;
-    // vm.resObject = ResService.resObject;
+    vm.resService = ResService;
     vm.resObject = ResService.resObject;
+
     vm.residencies = [];
     vm.show = true;
     vm.addARes = function (newRes) {
@@ -46,5 +46,44 @@ myApp.controller('ResController', function (UserService, ResService, $http) {
     }
     vm.getRes();
 
-});
+    vm.showMore = function (ev, res) {
+        console.log('Clicked showMore');
+        console.log('clicked', res);
+        $mdDialog.show({
+            controller: 'ResController as rc',
+            templateUrl: 'views/templates/dialog1.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            // resolve: function() {
+            //     return theObject;
+            // }
+        })}
+
+            vm.hide = function () {
+                $mdDialog.hide();
+            };
+
+            vm.cancel = function () {
+                $mdDialog.cancel();
+            };
+
+            vm.answer = function (answer) {
+                $mdDialog.hide(answer);
+            };
+        });
+    // .then(function (answer) {
+    //     $scope.status = 'You said the information was "' + answer + '".';
+    // }, function () {
+    //     $scope.status = 'You cancelled the dialog.';
+    
+
+
+
+
+            
+
+ 
+
+
 
