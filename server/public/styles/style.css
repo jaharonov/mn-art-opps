@@ -11,7 +11,7 @@ body, html {
   font-weight: 600;
 }
 
-.instructions {
+.md-toolbar-tools {
   background-color:#f06292;
   /* color: #DDDDDD; */
   padding: 15px;
