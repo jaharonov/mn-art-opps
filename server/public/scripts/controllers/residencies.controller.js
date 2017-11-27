@@ -4,17 +4,17 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
     vm.userService = UserService;
     vm.userObject = UserService.userObject;
     vm.resService = ResService;
-    vm.resObject = ResService.resObject;
-
+    // vm.resObject = ResService.resObject;
+    // vm.resObj = null;
     vm.residencies = [];
     vm.show = true;
+    vm.selectedIndex = ResService.resObj.selectedIndex;
+    
+
     vm.addARes = function (newRes) {
         console.log(newRes);
-        console.log(vm.resObject);
         $http.post('/residencies', newRes).then(function (response) {
             console.log('Posted a residency!');
-            // vm.thing.info = '';
-            // vm.thing.imageUrl = '';
              vm.getRes();
         }).catch(function (err) {
             alert('Please log in!');
@@ -22,7 +22,9 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             
         })
     }
-
+    vm.addTodo = function (newToDo) {
+        console.log('clicked addTodo!', vm.userObject);
+    }
     // vm.deleteBtn = function (id) {
     //     console.log('delete clicked');
 
@@ -45,22 +47,30 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         });
     }
     vm.getRes();
+    // vm.setRes = function(i) {
+    //     vm.resObj = i;
+    //     console.log('setting index', i);
+    //     return vm.resObj;
+    // }
+    vm.showMore = function (ev, i) {
+        ResService.resObj.selectedIndex = i;
+        console.log('Clicked showMore', i);
+        console.log(ResService.resObj);
 
-    vm.showMore = function (ev, res) {
-        console.log('Clicked showMore');
-        console.log('clicked', res);
         $mdDialog.show({
             controller: 'ResController as rc',
             templateUrl: 'views/templates/dialog1.html',
             parent: angular.element(document.body),
             targetEvent: ev,
-            clickOutsideToClose: true,
-            resolve: function() {
-                return theObject;
-                console.log(theObject);
+            clickOutsideToClose: true
+            // resolve: function(i) {
+            //         vm.resObj = i;
+            //         console.log('getting a res?',i);
+                
 
-            }
+            // }
         })}
+        
 
             vm.hide = function () {
                 $mdDialog.hide();
@@ -74,19 +84,9 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
                 console.log(answer);
                 $mdDialog.hide(answer);
             };
-        });
-    // .then(function (answer) {
-    //     $scope.status = 'You said the information was "' + answer + '".';
-    // }, function () {
-    //     $scope.status = 'You cancelled the dialog.';
-    
-
-
-
 
             
-
- 
-
+        });
 
 
+    

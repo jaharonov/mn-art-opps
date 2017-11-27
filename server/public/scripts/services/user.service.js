@@ -9,6 +9,7 @@ myApp.service('UserService', function($http, $location){
         if(response.data.username) {
             // user has a current session on the server
             self.userObject.userName = response.data.username;
+            self.userObject.todos = response.data.todos;
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
             console.log('UserService -- getuser -- failure');

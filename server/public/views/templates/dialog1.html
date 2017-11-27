@@ -1,10 +1,31 @@
 <md-dialog>
-    <div flex="22" flex-sm="55" ng-repeat="res in rc.residencies" class="oppCards" class="cards" aria-label="residencies">
-       
-            {{}}
-            <h2>{{res.name}}</h2>
-            <p>{{res.text}}</p>
-            <p>{{res.location}}</p>
-            <p>{{res.deadline | date}}</p>
+    
+    <div flex="22" flex-sm="55"  class="oppCards" class="cards" aria-label="residencies">
+            <img class="cardImage" src="{{rc.residencies[rc.selectedIndex].imageurl}}" class="md-card-image" alt="image caption">
+            <h1>{{rc.residencies[rc.selectedIndex].name}}</h1>
+            <p>{{rc.residencies[rc.selectedIndex].location}}</p>
+            <p>{{rc.residencies[rc.selectedIndex].text}}</p>
+            <p>{{rc.residencies[rc.selectedIndex].deadline | date}}</p>
     </div>
+    <div><h2>REVIEWS</h2></div>
+    <p>Here are reviews.</p>
+    <div><h2>ADD A REVIEW</h2></div>
+    <md-input-container flex-gt-xs>
+    <div layout-gt-sm="row">
+       
+            <!-- <div layout-gt-sm="row"> -->
+            <label>Review</label>
+            <textarea ng-model="rc.residency.text" md-maxlength="500" rows="6" md-select-on-focus></textarea>
+        </div>
+        </md-input-container>
+            <div id="submit" layout="row">
+            <md-button class="md-primary md-raised" ng-click="rv.addAReview(rv.review)">Submit</md-button>
+            <md-button class="md-warn md-raised" ng-click="rv.deleteAReview(rv.review)">Delete</md-button>
+            </div>
+            
+        
+
+
 </md-dialog>
+
+ 

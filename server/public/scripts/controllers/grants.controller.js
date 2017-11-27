@@ -6,6 +6,19 @@ myApp.controller('GrantController', function (UserService, $http) {
     // vm.resObject = ResService.resObject;
     vm.grantObject = {};
     vm.show = true;
+
+    
+    vm.getGrant = function () {
+        $http.get('/grants').then(function (response) {
+            vm.grants = response.data;
+            // vm.showDelete();
+            console.log(response);
+        }).catch(function (error) {
+            console.log('failure on GET route grant controller');
+        });
+    }
+    vm.getGrant();
+    
     vm.addAGrant = function (newGrant) {
         console.log(newGrant);
         $http.post('/grants', newGrant).then(function (response) {
@@ -17,8 +30,40 @@ myApp.controller('GrantController', function (UserService, $http) {
             alert('Please log in!');
             console.log('Can not post grant', err);
 
+        });
+    }
+
+
+    vm.showMore = function (ev, grant) {
+        console.log('Clicked showMore');
+        console.log('clicked', grant);
+        $mdDialog.show({
+            controller: 'GrantController as gc',
+            templateUrl: 'views/templates/dialog2.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            resolve: function () {
+                return theObject;
+                console.log(theObject);
+
+            }
         })
     }
+
+    vm.hide = function () {
+        $mdDialog.hide();
+    };
+
+    vm.cancel = function () {
+        $mdDialog.cancel();
+    };
+
+    vm.answer = function (answer) {
+        console.log(answer);
+        $mdDialog.hide(answer);
+    };
+});
 
     // vm.deleteBtn = function (id) {
     //     console.log('delete clicked');
@@ -33,15 +78,8 @@ myApp.controller('GrantController', function (UserService, $http) {
     // }
 
 
-    vm.getRes = function () {
-        $http.get('/grants').then(function (response) {
-            vm.grants = response.data;
-            // vm.showDelete();
-            console.log(response);
-        }).catch(function (error) {
-            console.log('failure on GET route grant controller');
-        });
-    }
-    vm.getRes();
+   
 
-});
+    
+    
+
