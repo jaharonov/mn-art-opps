@@ -55,9 +55,11 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            // resolve: function() {
-            //     return theObject;
-            // }
+            resolve: function() {
+                return theObject;
+                console.log(theObject);
+
+            }
         })}
 
             vm.hide = function () {
@@ -69,6 +71,7 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             };
 
             vm.answer = function (answer) {
+                console.log(answer);
                 $mdDialog.hide(answer);
             };
         });

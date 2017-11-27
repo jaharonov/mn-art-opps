@@ -5,7 +5,7 @@ myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $mdThemingProvider.theme('default')
-    .primaryPalette('teal')
+    .primaryPalette('cyan')
     .accentPalette('pink')
     .backgroundPalette('grey');
   $routeProvider
@@ -47,6 +47,15 @@ myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
     .when('/todo', {
       templateUrl: '/views/templates/todo.html',
       controller: 'UserController as uc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/landing', {
+      templateUrl: '/views/templates/landing.html',
+      controller: 'LandingController as lc',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

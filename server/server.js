@@ -36,6 +36,7 @@ app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/residencies', residenciesRouter);
 app.use('/grants', grantsRouter);
+app.use('/landing', userRouter);
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
 

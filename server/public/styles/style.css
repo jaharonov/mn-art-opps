@@ -49,8 +49,8 @@ body, html {
   margin-left: 10px;
 }
 
-.navbar {
-  background-color: #333333;
+.md-nav-bar {
+  align-content: right;
   width: 100%;
   border-radius: 0px;
 }
@@ -80,11 +80,11 @@ li a:hover {
   color: #eee;
 }
 
-.md-primary {
+/* .md-primary {
   background-color: #f06292;
-}
+} */
 
-.navbar {
+md-nav-bar {
   background-color: #b92a64;
   
 }
@@ -98,6 +98,10 @@ li a:hover {
   float: right;
 }
 
+#more {
+  float: right;
+}
+
 .cardImage {
     
     display: inline-block;
@@ -106,9 +110,31 @@ li a:hover {
 
 md-card {
   object-fit: contain;
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 600px;
 }
 .inputs {
   background-color: lightgray;
 }
+
+.login {
+  object-fit: contain;
+  width: 200px;
+  height: auto;
+}
+
+.material-icons {
+  color: #f06292;
+}
+
+.landingTitles {
+  background-color:cyan;
+  
+}
+
+.landingLinks {
+   color: black;
+    text-decoration: none;
+}
+
+
