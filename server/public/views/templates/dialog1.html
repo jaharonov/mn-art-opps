@@ -6,10 +6,13 @@
             <p>{{rc.residencies[rc.selectedIndex].location}}</p>
             <p>{{rc.residencies[rc.selectedIndex].text}}</p>
             <p>{{rc.residencies[rc.selectedIndex].deadline | date}}</p>
-             {{rc.residencies[rc.selectedIndex]._id}}
+            <div>
+                <h2>REVIEWS</h2>
+            </div>
+            <div ng-repeat="res in rc.residencies[rc.selectedIndex] track by $index">
+            <p ng-repeat="review in res track by $index">{{review.text}}</p>
+             <!-- {{rc.residencies[rc.selectedIndex]._id}} -->
     </div>
-    <div><h2>REVIEWS</h2></div>
-    <p>Here are reviews.</p>
     <div><h2>ADD A REVIEW</h2></div>
     <md-input-container flex-gt-xs>
     <div layout-gt-sm="row">
@@ -24,6 +27,7 @@
             <md-button class="md-primary md-raised" ng-click="rc.addResRev(rc.residencies[rc.selectedIndex]._id, rc.residency.review)">Submit</md-button>
             <md-button class="md-warn md-raised" ng-click="rc.deleteAReview(rc.review)">Delete</md-button>
             </div>
+            
             
         
 
