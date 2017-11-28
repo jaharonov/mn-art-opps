@@ -22,20 +22,45 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             
         })
     }
+
+    vm.addResRev = function (resId, newRev) {
+        var newRev = {objectToSend: newRev};
+        console.log('in reviews:', newRev, resId);
+        $http.put('/residencies/' + resId, newRev).then(function (response) {
+            console.log('Posted a review!');
+            vm.getRes();
+        }).catch(function (err) {
+            
+            console.log('Can not post review', err);
+
+        })
+    }
+
+    // vm.updateBuy = function (userId, marketItem) {
+    //     console.log('in updateBuy', userId, marketItem);
+    //     $http.put('/market/buy/' + userId, marketItem).then(function (response) {
+    //         console.log('success');
+    //         vm.getUser();
+    //         vm.refreshItems();
+    //     }).catch(function (error) {
+    //         console.log('failure', error);
+    //     });
+    // }
+
     vm.addTodo = function (newToDo) {
         console.log('clicked addTodo!', vm.userObject);
     }
-    // vm.deleteBtn = function (id) {
-    //     console.log('delete clicked');
+    vm.deleteBtn = function (id) {
+        console.log('delete clicked');
 
-    //     $http.delete('/info/' + id).then(function (response) {
-    //         console.log('this is deleted');
-    //         vm.getThings();
-    //     }).catch(function (err) {
-    //         alert('Please log in to delete stuff!');
-    //         console.log('error', err);
-    //     })
-    // }
+        $http.delete('/review/' + id).then(function (response) {
+            console.log('this is deleted');
+            vm.getRes();
+        }).catch(function (err) {
+            alert('Please log in to delete stuff!');
+            console.log('error', err);
+        })
+    }
 
     vm.getRes = function () {
         $http.get('/residencies').then(function (response) {
@@ -47,11 +72,7 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         });
     }
     vm.getRes();
-    // vm.setRes = function(i) {
-    //     vm.resObj = i;
-    //     console.log('setting index', i);
-    //     return vm.resObj;
-    // }
+   
     vm.showMore = function (ev, i) {
         ResService.resObj.selectedIndex = i;
         console.log('Clicked showMore', i);
@@ -63,12 +84,7 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true
-            // resolve: function(i) {
-            //         vm.resObj = i;
-            //         console.log('getting a res?',i);
-                
-
-            // }
+            
         })}
         
 

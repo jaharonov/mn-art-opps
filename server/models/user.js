@@ -4,15 +4,7 @@ var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
 // Mongoose Schema
-var ReviewSchema = new Schema ({
-    name: String,
-    text: String
-});
 
-var RatingSchema = new Schema({
-    name: String,
-    number: Number
-});
 
 var TodoSchema = new Schema({ 
     name: String,
@@ -24,8 +16,6 @@ var TodoSchema = new Schema({
 var UserSchema = new Schema({
     username: String,
     password: String,
-    reviews:  [ReviewSchema],
-    ratings:  [RatingSchema],
     todos:    [TodoSchema]
 
 });

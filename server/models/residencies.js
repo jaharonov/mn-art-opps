@@ -1,6 +1,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var ReviewSchema = new Schema({
+    userId: Schema.Types.ObjectId, 
+    text: String
+});
+
+var RatingSchema = new Schema({
+    userId: Schema.Types.ObjectId, 
+    number: Number
+});
 // Mongoose Schema
 var ResidencySchema = new Schema({
     name: String,
@@ -8,7 +17,10 @@ var ResidencySchema = new Schema({
     deadline: Date,
     location: String,
     url: String,
-    imageurl: String
+    imageurl: String,
+    review: [ReviewSchema], 
+    rating: [RatingSchema]
+
 });
 
 module.exports = mongoose.model('Residency', ResidencySchema);
