@@ -1,11 +1,12 @@
-myApp.controller('GrantController', function (UserService, $http) {
+myApp.controller('GrantController', function (UserService, $http, GrantService, $mdDialog) {
     console.log('GrantController created');
     var vm = this;
     vm.userObject = UserService.userObject;
-    // vm.resService = ResService;
-    // vm.resObject = ResService.resObject;
-    vm.grantObject = {};
+    vm.userService = UserService;
+    vm.grantService = GrantService;
+    vm.grants = {};
     vm.show = true;
+    vm.selectedIndex = GrantService.grantObj.selectedIndex;
 
     
     vm.getGrant = function () {
@@ -18,7 +19,7 @@ myApp.controller('GrantController', function (UserService, $http) {
         });
     }
     vm.getGrant();
-    
+
     vm.addAGrant = function (newGrant) {
         console.log(newGrant);
         $http.post('/grants', newGrant).then(function (response) {
@@ -34,20 +35,20 @@ myApp.controller('GrantController', function (UserService, $http) {
     }
 
 
-    vm.showMore = function (ev, grant) {
-        console.log('Clicked showMore');
-        console.log('clicked', grant);
+    vm.showMore = function (ev, i) {
+        console.log('Clicked showMore', i);
+        console.log(GrantService.resObj);
         $mdDialog.show({
             controller: 'GrantController as gc',
             templateUrl: 'views/templates/dialog2.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            resolve: function () {
-                return theObject;
-                console.log(theObject);
+            // resolve: function () {
+            //     return theObject;
+            //     console.log(theObject);
 
-            }
+            // }
         })
     }
 

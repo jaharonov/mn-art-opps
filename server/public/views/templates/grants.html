@@ -55,11 +55,12 @@
             <p>{{grant.deadline | date}}</p>
             <div>
                 <md-card-footer>
-                    <md-button class="md-primary md-raised" ng-click="gc.showMore(ev, res)" class="md-raised" aria-label="Open Dialog" id="more">
+                    <md-button class="md-primary md-raised" ng-click="gc.showMore($event, $index)" class="md-raised" aria-label="Open Dialog" id="more">
                         More Info
                     </md-button>
-                    <md-button>
-                        <i class="material-icons" layout-align="left">favorite</i>
+                        <md-button>
+                            <i class="material-icons" ng-click="rc.addTodo($event, $index)" layout-align="left">favorite</i>
+                        </md-button>
                     </md-button>
                 </md-card-footer>
             </div>
