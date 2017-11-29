@@ -28,5 +28,26 @@ router.get('/logout', function(req, res) {
   res.sendStatus(200);
 });
 
+router.put('/:id', (req, res) => {
+  console.log("req.params", req.params)
+  console.log('resRouter - put /review');
+  var resId = req.params.id;
+  var review = { text: req.body.objectToSend, userId: req.user._id };
+
+
+  resObject.findByIdAndUpdate({ "_id": resId }, { $push: { review: review } }, function (err, foundResObject) {
+    // if (err) { return handleError(err) };
+
+    if (err) {
+      console.log('error', err);
+      res.sendStatus(500);
+    }
+    else {
+      console.log('success');
+      //                 res.sendStatus(201);
+    }
+
+  });
+});
 
 module.exports = router;

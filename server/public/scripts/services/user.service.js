@@ -2,14 +2,14 @@ myApp.service('UserService', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
-
+  vm.selectedIndex = UserService.userObject.selectedIndex;
   self.getuser = function(){
     console.log('UserService -- getuser');
     $http.get('/user').then(function(response) {
         if(response.data.username) {
             // user has a current session on the server
             self.userObject.userName = response.data.username;
-            // self.userObject.todos = response.data.todos;
+            self.userObject.todos = response.data.todos;
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
             console.log('UserService -- getuser -- failure');

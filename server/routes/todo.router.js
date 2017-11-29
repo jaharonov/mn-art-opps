@@ -5,6 +5,16 @@ var path = require('path');
 var mongoose = require('mongoose');
 var todoObject = require('../models/user.js');
 
+router.get('/', function (req, res) {
+    todoObject.find({}, function (err, foundObjects) {
+        if (err) {
+            console.log('error', err);
+            res.sendStatus(500);
+        } else {
+            res.send(foundObjects);
+        }
+    });
+
 router.post('/', function (req, res) {
     if (req.isAuthenticated()) {
         // send back user object from database
