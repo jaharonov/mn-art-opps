@@ -8,13 +8,13 @@ myApp.controller('TodoController', function ($scope, UserService, GrantService, 
     vm.show = true;
 });
 
-vm.getRes = function () {
-    $http.get('/todos').then(function (response) {
-        vm.todos = response.data;
-        // vm.showDelete();
-        console.log(response);
-    }).catch(function (error) {
-        console.log('failure on GET route res controller');
-    });
-}
-vm.getRes();
+// vm.getRes = function () {
+//     $http.get('/todos').then(function (response) {
+//         vm.todos = response.data;
+//         // vm.showDelete();
+//         console.log(response);
+//     }).catch(function (error) {
+//         console.log('failure on GET route res controller');
+//     });
+// }
+// vm.getRes();

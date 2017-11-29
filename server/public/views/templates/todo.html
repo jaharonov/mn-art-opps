@@ -2,11 +2,27 @@
     <div>
         <!-- <fieldset class="standard"> -->
             <div  class="cards" aria-label="todos">
-                {{rc}}
+                 {{uc.userObject.userName}}
+                 
                 <!-- <h1>{{rc.residencies[rc.selectedIndex].name}}</h1>
                 <p>{{rc.residencies[rc.selectedIndex].deadline | date}}</p> -->
                 <div>
+    <div ng-repeat="userName in uc.userObject">
+        <ul ng-repeat="todos in userName">
+            <li>{{todos.deadline}}</li>
+            <li>{{todos.deadline}}</li>
+            
+    
+        </p>
+    </div>
 
+    <div ng-repeat="res in rc.residencies[rc.selectedIndex] track by $index">
+        <p ng-repeat="review in res track by $index">
+            <strong>{{review.userId[0].username}}</strong>
+            {{review.text}}
+    
+        </p>
+    </div>
 
             <!-- <div layout-wrap layout-gt-sm="column">
                

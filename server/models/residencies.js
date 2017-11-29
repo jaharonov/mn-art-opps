@@ -17,7 +17,7 @@ var ResidencySchema = new Schema({
     deadline: Date,
     location: String,
     url: String,
-    imageurl: String,
+    imageurl: { type: String, default: 'https://pbs.twimg.com/media/CZVquh2XEAQc__m.jpg' }, 
     review: [ReviewSchema], 
     rating: [RatingSchema]
 
