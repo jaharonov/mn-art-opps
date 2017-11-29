@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var grantObject = require('../models/grants.js');
 
 router.get('/', function (req, res) {
-    grantObject.find({}, function (err, foundObjects) {
+    grantObject.find({}).populate('review.userId', 'username').exec(function (err, foundObjects) {
         if (err) {
             console.log('error', err);
             res.sendStatus(500);
@@ -43,5 +43,28 @@ router.post('/', function (req, res) {
         res.send(403);
     }
 })
+
+//review put route
+router.put('/:id', (req, res) => {
+    console.log("req.params", req.params)
+    console.log('grantRouter - put /review');
+    var grantId = req.params.id;
+    var review = { text: req.body.objectToSend, userId: req.user._id };
+    console.log(req.body.objectToSend);
+
+    grantObject.findByIdAndUpdate({ "_id": grantId }, {$push: {review: review}}, function (err, foundGrantObject) {
+        // if (err) { return handleError(err) };
+
+        if (err) {
+            console.log('error', err);
+            res.sendStatus(500);
+        }
+        else {
+            console.log('success');
+            //                 res.sendStatus(201);
+        }
+
+    });
+});
 
 module.exports = router;

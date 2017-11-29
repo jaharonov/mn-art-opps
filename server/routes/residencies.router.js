@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var resObject = require('../models/residencies.js');
 
 router.get('/', function (req, res) {
-    resObject.find({}, function (err, foundObjects) {
+    resObject.find({}).populate('review.userId', 'username').exec(function (err, foundObjects) {
         if (err) {
             console.log('error', err);
             res.sendStatus(500);

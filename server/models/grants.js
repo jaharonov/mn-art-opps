@@ -4,14 +4,12 @@ var Schema = mongoose.Schema;
 // Mongoose Schema
 
 var ReviewSchema = new Schema({
-    userId: Schema.Types.ObjectId,
-    name: String,
+    userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     text: String
 });
 
 var RatingSchema = new Schema({
     userId: Schema.Types.ObjectId,
-    name: String,
     number: Number
 });
 var GrantSchema = new Schema({

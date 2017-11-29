@@ -9,8 +9,14 @@
     </div>
     <div>
         <h2>REVIEWS</h2>
+        <div ng-repeat="grant in gc.grants[gc.selectedIndex] track by $index">
+            <p ng-repeat="review in grant track by $index">
+                <strong>{{review.userId[0].username}}</strong>
+                {{review.text}}
+                
+                </p>
+            </p>
     </div>
-    <p>Here are reviews.</p>
     <div>
         <h2>ADD A REVIEW</h2>
     </div>
@@ -19,12 +25,12 @@
 
             <!-- <div layout-gt-sm="row"> -->
             <label>Review</label>
-            <textarea ng-model="rc.residency.text" md-maxlength="500" rows="6" md-select-on-focus></textarea>
+            <textarea ng-model="gc.grant.review" md-maxlength="500" rows="6" md-select-on-focus></textarea>
         </div>
     </md-input-container>
     <div id="submit" layout="row">
-        <md-button class="md-primary md-raised" ng-click="gc.addAReview(gc.review)">Submit</md-button>
-        <md-button class="md-warn md-raised" ng-click="gc.deleteAReview(gcmongod.review)">Delete</md-button>
+        <md-button class="md-primary md-raised" ng-click="gc.addGrantRev(gc.grants[gc.selectedIndex]._id, gc.grant.review)">Submit</md-button>
+        <md-button class="md-warn md-raised" ng-click="gc.deleteAReview(gc.review)">Delete</md-button>
     </div>
 
 

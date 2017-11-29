@@ -8,7 +8,33 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
     vm.show = true;
     vm.selectedIndex = GrantService.grantObj.selectedIndex;
 
-    
+
+    vm.addAGrant = function (newGrant) {
+        console.log(newGrant);
+        $http.post('/grants', newGrant).then(function (response) {
+            console.log('Posted a grant!');
+            vm.getGrant();
+        }).catch(function (err) {
+            alert('Please log in!');
+            console.log('Can not post grant', err);
+
+        });
+    }
+
+
+    vm.addGrantRev = function (grantId, newRev) {
+        var newRev = { objectToSend: newRev };
+        console.log('in reviews:', newRev, grantId);
+        $http.put('/grants/' + grantId, newRev).then(function (response) {
+            console.log('Posted a review!');
+            vm.getGrant();
+        }).catch(function (err) {
+
+            console.log('Can not post review', err);
+
+        });
+    }
+
     vm.getGrant = function () {
         $http.get('/grants').then(function (response) {
             vm.grants = response.data;
@@ -20,24 +46,10 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
     }
     vm.getGrant();
 
-    vm.addAGrant = function (newGrant) {
-        console.log(newGrant);
-        $http.post('/grants', newGrant).then(function (response) {
-            console.log('Posted a grant!');
-            // vm.thing.info = '';
-            // vm.thing.imageUrl = '';
-            // vm.getRes();
-        }).catch(function (err) {
-            alert('Please log in!');
-            console.log('Can not post grant', err);
-
-        });
-    }
-
 
     vm.showMore = function (ev, i) {
         console.log('Clicked showMore', i);
-        console.log(GrantService.resObj);
+        console.log(GrantService.grantObj);
         $mdDialog.show({
             controller: 'GrantController as gc',
             templateUrl: 'views/templates/dialog2.html',
@@ -66,17 +78,7 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
     };
 });
 
-    // vm.deleteBtn = function (id) {
-    //     console.log('delete clicked');
-
-    //     $http.delete('/info/' + id).then(function (response) {
-    //         console.log('this is deleted');
-    //         vm.getThings();
-    //     }).catch(function (err) {
-    //         alert('Please log in to delete stuff!');
-    //         console.log('error', err);
-    //     })
-    // }
+    
 
 
    

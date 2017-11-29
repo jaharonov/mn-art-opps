@@ -4,8 +4,6 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
     vm.userService = UserService;
     vm.userObject = UserService.userObject;
     vm.resService = ResService;
-    // vm.resObject = ResService.resObject;
-    // vm.resObj = null;
     vm.residencies = [];
     vm.show = true;
     vm.selectedIndex = ResService.resObj.selectedIndex;
@@ -20,8 +18,9 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
             alert('Please log in!');
             console.log('Can not post residency', err);
             
-        })
+        });
     }
+    
 
     vm.addResRev = function (resId, newRev) {
         var newRev = {objectToSend: newRev};
@@ -36,16 +35,6 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         })
     }
 
-    // vm.updateBuy = function (userId, marketItem) {
-    //     console.log('in updateBuy', userId, marketItem);
-    //     $http.put('/market/buy/' + userId, marketItem).then(function (response) {
-    //         console.log('success');
-    //         vm.getUser();
-    //         vm.refreshItems();
-    //     }).catch(function (error) {
-    //         console.log('failure', error);
-    //     });
-    // }
 
     vm.addTodo = function (newToDo) {
         console.log('clicked addTodo!', vm.userObject);
