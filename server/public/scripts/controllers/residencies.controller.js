@@ -35,10 +35,22 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         })
     }
 
+    vm.addTodo = function (resId, res) {
+        console.log(res);
+        
+        console.log('Clicked showMore');
+        // var newTodo = { objectToSend: newTodo };
+        // console.log('in reviews:', newTodo, resId);
+        $http.put('/residencies/todos/' + resId, res).then(function (response) {
+            console.log('Posted a review!');
+            vm.getRes();
+        }).catch(function (err) {
 
-    vm.addTodo = function (newToDo) {
-        console.log('clicked addTodo!', vm.userObject);
+            console.log('Can not post todo', err);
+
+        })
     }
+
     vm.deleteBtn = function (id) {
         console.log('delete clicked');
 

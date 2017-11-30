@@ -67,6 +67,30 @@ router.put('/:id', (req, res) => {
                
             });
     });
+//todo put route 
+router.put('/todos/:id', (req, res) => {
+    console.log("req.body", req.body.name);
+    // console.log('resRouter - put /review');
+    // var resId = req.params.id;
+    var todos = req.body;
+    
+     todos.complete = false;
+
+
+    // resObject.findByIdAndUpdate({ "_id": resId }, { $push: { review: review } }, function (err, foundResObject) {
+    //     // if (err) { return handleError(err) };
+
+    //     if (err) {
+    //         console.log('error', err);
+    //         res.sendStatus(500);
+    //     }
+    //     else {
+    //         console.log('success');
+    //         //                 res.sendStatus(201);
+    //     }
+
+    // });
+});
 
 //delete review 
 router.delete('/:id', function (req, res) {
