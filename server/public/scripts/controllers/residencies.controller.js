@@ -36,13 +36,13 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
     }
 
     vm.addTodo = function (resId, res) {
-        console.log(res);
         
-        console.log('Clicked showMore');
+        
+        console.log('Clicked addTodo', res);
         // var newTodo = { objectToSend: newTodo };
         // console.log('in reviews:', newTodo, resId);
         $http.put('/residencies/todos/' + resId, res).then(function (response) {
-            console.log('Posted a review!');
+            console.log('Posted a todo!');
             vm.getRes();
         }).catch(function (err) {
 

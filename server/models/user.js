@@ -9,7 +9,7 @@ var SALT_WORK_FACTOR = 10;
 var TodoSchema = new Schema({ 
     name: String,
     deadline: Date,
-    complete: Boolean
+    complete: {type: Boolean, default: false}
 });
 
 

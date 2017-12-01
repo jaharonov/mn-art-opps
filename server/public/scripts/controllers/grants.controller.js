@@ -76,9 +76,25 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
         console.log(answer);
         $mdDialog.hide(answer);
     };
-});
 
-    
+
+vm.addTodo = function (id, grant) {
+
+
+    console.log('Clicked addTodo', id);
+    // var newTodo = { objectToSend: newTodo };
+    // console.log('in reviews:', newTodo, resId);
+    $http.put('/grants/todos/' + id, grant).then(function (response) {
+        console.log('Posted a todo!');
+        vm.getGrant();
+    }).catch(function (err) {
+
+        console.log('Can not post todo', err);
+
+    })
+}
+
+}); 
 
 
    

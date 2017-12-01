@@ -1,28 +1,18 @@
-<div class="md-padding" ng-cloak>
-    <div>
-        <!-- <fieldset class="standard"> -->
-            <div  class="cards" aria-label="todos">
-                 {{uc.userObject.userName}}
-                 
-                <!-- <h1>{{rc.residencies[rc.selectedIndex].name}}</h1>
-                <p>{{rc.residencies[rc.selectedIndex].deadline | date}}</p> -->
-                <div>
-    <div ng-repeat="userName in uc.userObject">
-        <ul ng-repeat="todos in userName">
-            <li>{{todos.deadline}}</li>
-            <li>{{todos.deadline}}</li>
-            
-    
-        </p>
-    </div>
-
-    <div ng-repeat="res in rc.residencies[rc.selectedIndex] track by $index">
+<div ng-cloak>
+    <div ng-repeat="userName in uc.userObject track by $index">
+        <md-checkbox ng-repeat="todos in userName track by $index">
+            <li>{{todos.name}} </li>
+            <li> {{todos.deadline | date}}</li>
+        </ul>
+</div>
+</div>
+    <!-- <div ng-repeat="res in rc.residencies[rc.selectedIndex] track by $index">
         <p ng-repeat="review in res track by $index">
             <strong>{{review.userId[0].username}}</strong>
             {{review.text}}
     
         </p>
-    </div>
+    </div> -->
 
             <!-- <div layout-wrap layout-gt-sm="column">
                

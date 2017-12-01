@@ -137,4 +137,7 @@ md-card {
     text-decoration: none;
 }
 
-
+.dialogtext {
+  padding-left: 10px;
+  padding-right: 10px;
+}

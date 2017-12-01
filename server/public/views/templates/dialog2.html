@@ -1,12 +1,13 @@
 <md-dialog>
-
+    <md-dialog-content layout="column">
     <div flex="22" flex-sm="55" class="oppCards" class="cards" aria-label="grants">
         <img class="cardImage" src="{{rc.residencies[rc.selectedIndex].imageurl}}" class="md-card-image" alt="image caption">
+        <div class="dialogtext">
         <h1>{{gc.grants[gc.selectedIndex].name}}</h1>
         <p>{{gc.grants[gc.selectedIndex].location}}</p>
         <p>{{gc.grants[gc.selectedIndex].text}}</p>
         <p>{{gc.grants[gc.selectedIndex].deadline | date}}</p>
-    </div>
+    
     <div>
         <h2>REVIEWS</h2>
         <div ng-repeat="grant in gc.grants[gc.selectedIndex] track by $index">
@@ -35,5 +36,6 @@
 
 
 
-
+     </div>
+    </md-dialog-content>
 </md-dialog>

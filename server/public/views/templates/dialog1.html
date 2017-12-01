@@ -1,11 +1,13 @@
 <md-dialog>
-    
+    <md-dialog-content layout="column">
     <div flex="22" flex-sm="55"  class="oppCards" class="cards" aria-label="residencies">
             <img class="cardImage" src="{{rc.residencies[rc.selectedIndex].imageurl}}" class="md-card-image" alt="image caption">
+            <div class="dialogtext">
             <h1>{{rc.residencies[rc.selectedIndex].name}}</h1>
             <p>{{rc.residencies[rc.selectedIndex].location}}</p>
             <p>{{rc.residencies[rc.selectedIndex].text}}</p>
             <p>{{rc.residencies[rc.selectedIndex].deadline | date}}</p>
+            
             <div>
                 <h2>REVIEWS</h2>
             </div>
@@ -33,8 +35,8 @@
             
             
         
-
-
+            </div>
+            </md-dialog-content>
 </md-dialog>
 
  

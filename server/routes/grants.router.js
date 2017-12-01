@@ -4,7 +4,7 @@ var passport = require('passport');
 var path = require('path');
 var mongoose = require('mongoose');
 var grantObject = require('../models/grants.js');
-
+var userObject = require('../models/user.js')
 router.get('/', function (req, res) {
     grantObject.find({}).populate('review.userId', 'username').exec(function (err, foundObjects) {
         if (err) {
@@ -53,6 +53,35 @@ router.put('/:id', (req, res) => {
     console.log(req.body.objectToSend);
 
     grantObject.findByIdAndUpdate({ "_id": grantId }, {$push: {review: review}}, function (err, foundGrantObject) {
+        // if (err) { return handleError(err) };
+
+        if (err) {
+            console.log('error', err);
+            res.sendStatus(500);
+        }
+        else {
+            console.log('success');
+            //                 res.sendStatus(201);
+        }
+
+    });
+});
+//todo route
+router.put('/todos/:id', (req, res) => {
+
+    // console.log('resRouter - put /review');
+    var id = req.user._id;
+    console.log(req.user._id);
+    var todos = {
+        name: req.body.name,
+        deadline: req.body.deadline,
+        complete: false
+    }
+
+    console.log("todos", todos);
+
+
+    userObject.findByIdAndUpdate({ "_id": id }, { $push: { todos: todos } }, function (err, foundUserObject) {
         // if (err) { return handleError(err) };
 
         if (err) {

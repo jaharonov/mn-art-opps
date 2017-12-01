@@ -47,6 +47,7 @@
     <br> -->
 
 <div layout="row" layout-sm="column" layout-wrap layout-margin layout-align="center center">
+    {{rc}}
     <md-card flex="22" flex-sm="40" flex-xs="55" ng-repeat="res in rc.residencies" class="oppCards" class="cards">
         <img class="cardImage" src="{{res.imageurl}}" class="md-card-image" alt="image caption">
         <md-card-content>
@@ -57,12 +58,13 @@
             <p>{{res.location}}</p>
             <h3>Deadline:</h3>
             <p>{{res.deadline | date}}</p>
+            
             <div>
                 <md-card-footer>
             <md-button class="md-primary md-raised" ng-click="rc.showMore($event, $index)" class="md-raised" aria-label="Open Dialog" id="more">
                 More Info
             </md-button>
-            <md-button><i class="material-icons" ng-click="rc.addTodo($event, res)"layout-align="left">favorite</i></md-button>
+            <md-button><i class="material-icons" ng-click="rc.addTodo(rc.residencies[rc.selectedIndex]._id, res)"layout-align="left">favorite</i></md-button>
             </md-card-footer>
             </div>
         </md-card-content>
