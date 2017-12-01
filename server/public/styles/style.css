@@ -11,10 +11,13 @@ body, html {
   font-weight: 600;
 }
 
-.md-toolbar-tools {
+header {
   background-color:#f06292;
+  font-size: 24px;
   /* color: #DDDDDD; */
-  padding: 15px;
+  padding: 10px;
+  font-family: 'Abel', sans-serif;
+  height: 125px;
 }
 
 #entryForm {
@@ -140,4 +143,18 @@ md-card {
 .dialogtext {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+md-checkbox {
+  font-size: 18px;
+}
+
+#parallelogram {
+	width: 350px;
+	height: 150px;
+	-webkit-transform: skew(20deg);
+	   -moz-transform: skew(20deg);
+	     -o-transform: skew(20deg);
+  background: cyan;
+  padding-left: 75px;
 }
