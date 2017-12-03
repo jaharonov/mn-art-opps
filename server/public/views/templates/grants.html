@@ -1,4 +1,4 @@
-<div layout="column" layout-align="center center" ng-cloak class="md-block">
+<!-- <div layout="column" layout-align="center center" ng-cloak class="md-block">
 
     <md-content layout-padding class="inputs">
         <div>
@@ -24,31 +24,31 @@
         </div>
         </md-input-container>
         <md-input-container class="md-block" flex-gt-xs>
-            <!-- <div layout-gt-sm="row"> -->
-            <label>Info</label>
-            <textarea ng-model="gc.grant.info" md-maxlength="500" rows="6" md-select-on-focus></textarea>
-            <!-- </div> -->
-        </md-input-container>
+            <! <div layout-gt-sm="row"> -->
+            <!-- <label>Info</label>
+            <textarea ng-model="gc.grant.text" md-maxlength="1000" rows="6" md-select-on-focus></textarea>
+            <! </div> -->
+        <!-- </md-input-container>
         <md-input-container>
-            <!-- <div layout-gt-sm="row"> -->
-            <label>Deadline</label>
-            <md-datepicker ng-model="gc.grant.deadline"></md-datepicker>
+            <! <div layout-gt-sm="row"> -->
+            <!-- <label>Deadline</label>
+            <md-datepicker ng-model="gc.grant.deadline"></md-datepicker> -->
             <!-- </div> -->
-        </md-input-container>
+        <!-- </md-input-container>
         <br>
-        <div id="submit">
-            <md-button class="md-accent md-raised" ng-click="gc.addAGrant(gc.grant)">Submit</md-button>
+        <div id="submit"> -->
+            <!-- <md-button class="md-accent md-raised" ng-click="gc.addAGrant(gc.grant)">Submit</md-button>
         </div>
     </md-content>
-</div>
+</div> --> 
 
 <div layout="row" layout-sm="column" layout-wrap layout-margin layout-align="center center">
     <md-card flex="22" flex-sm="40" flex-xs="55" ng-repeat="grant in gc.grants" class="oppCards" class="cards">
-        <img class="cardImage" src="{{res.imageurl}}" class="md-card-image" alt="image caption">
+        <img class="cardImage" src="{{grant.imageurl}}" class="md-card-image" alt="image caption">
         <md-card-content>
             <h2>{{grant.name}}</h2>
-            <h3>Info:</h3>
-            <p>{{grant.text}}</p>
+            <!-- <h3>Info:</h3>
+            <p>{{grant.text}}</p> -->
             <h3>Location:</h3>
             <p>{{grant.location}}</p>
             <h3>Deadline:</h3>

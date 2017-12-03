@@ -12,7 +12,15 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
     vm.addARes = function (newRes) {
         console.log(newRes);
         $http.post('/residencies', newRes).then(function (response) {
-            console.log('Posted a residency!');
+            console.log('Posted a residency!', vm.residency.name);
+            vm.residency.name = '';
+            vm.residency.text = '';
+            vm.residency.location = '';
+            vm.residency.deadline = '';
+            vm.residency.url = '';
+            vm.residency.imageurl = '';
+            
+            
              vm.getRes();
         }).catch(function (err) {
             alert('Please log in!');

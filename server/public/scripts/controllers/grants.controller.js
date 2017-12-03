@@ -13,6 +13,12 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
         console.log(newGrant);
         $http.post('/grants', newGrant).then(function (response) {
             console.log('Posted a grant!');
+            vm.grant.name = '';
+            vm.grant.text = '';
+            vm.grant.location = '';
+            vm.grant.deadline = '';
+            vm.grant.url = '';
+            vm.grant.imageurl = '';
             vm.getGrant();
         }).catch(function (err) {
             alert('Please log in!');
@@ -38,8 +44,8 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
     vm.getGrant = function () {
         $http.get('/grants').then(function (response) {
             vm.grants = response.data;
-            // vm.showDelete();
             console.log(response);
+            
         }).catch(function (error) {
             console.log('failure on GET route grant controller');
         });
@@ -48,6 +54,7 @@ myApp.controller('GrantController', function (UserService, $http, GrantService, 
 
 
     vm.showMore = function (ev, i) {
+        GrantService.grantObj.selectedIndex = i;
         console.log('Clicked showMore', i);
         console.log(GrantService.grantObj);
         $mdDialog.show({

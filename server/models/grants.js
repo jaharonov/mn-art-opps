@@ -18,7 +18,7 @@ var GrantSchema = new Schema({
     deadline: Date,
     location: String,
     url: String,
-    imageurl: { type: String, default: 'https://pbs.twimg.com/media/CZVquh2XEAQc__m.jpg' },
+    imageurl: { type: String, default: 'http://www.supercoloring.com/sites/default/files/silhouettes/2015/05/minnesota-map-cyan-silhouette.svg' },
     review: [ReviewSchema],
     rating: [RatingSchema]
 });

@@ -25,7 +25,7 @@
         <md-input-container class="md-block" flex-gt-xs>
             <!-- <div layout-gt-sm="row"> -->
                 <label>Info</label>
-                <textarea ng-model="rc.residency.text" md-maxlength="500" rows="6" md-select-on-focus></textarea>
+                <textarea ng-model="rc.residency.text" md-maxlength="1000" rows="6" md-select-on-focus></textarea>
             <!-- </div> -->
         </md-input-container>
         <md-input-container>
@@ -51,8 +51,8 @@
         <img class="cardImage" src="{{res.imageurl}}" class="md-card-image" alt="image caption">
         <md-card-content>
             <h2>{{res.name}}</h2>
-            <h3>Info:</h3>
-            <p>{{res.text}}</p>
+            <!-- <h3>Info:</h3>
+            <p>{{res.text}}</p> -->
             <h3>Location:</h3>
             <p>{{res.location}}</p>
             <h3>Deadline:</h3>

@@ -1,11 +1,14 @@
 <md-dialog>
     <md-dialog-content layout="column">
     <div flex="22" flex-sm="55" class="oppCards" class="cards" aria-label="grants">
-        <img class="cardImage" src="{{rc.residencies[rc.selectedIndex].imageurl}}" class="md-card-image" alt="image caption">
+        <img class="cardImage" src="{{gc.grants[gc.selectedIndex].imageurl}}" class="md-card-image" alt="image caption">
         <div class="dialogtext">
         <h1>{{gc.grants[gc.selectedIndex].name}}</h1>
         <p>{{gc.grants[gc.selectedIndex].location}}</p>
         <p>{{gc.grants[gc.selectedIndex].text}}</p>
+        <p>
+            <a href="{{gc.grants[gc.selectedIndex].url}}" target="_blank">Link</a>
+        </p>
         <p>{{gc.grants[gc.selectedIndex].deadline | date}}</p>
     
     <div>
@@ -26,7 +29,7 @@
 
             <!-- <div layout-gt-sm="row"> -->
             <label>Review</label>
-            <textarea ng-model="gc.grant.review" md-maxlength="500" rows="6" md-select-on-focus></textarea>
+            <textarea ng-model="gc.grant.review" md-maxlength="1000" rows="6" md-select-on-focus></textarea>
         </div>
     </md-input-container>
     <div id="submit" layout="row">
