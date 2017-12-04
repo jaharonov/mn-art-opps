@@ -59,17 +59,6 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         })
     }
 
-    vm.deleteARes = function (resId, res) {
-        console.log('delete clicked');
-
-        $http.delete('/residency/' + id).then(function (response) {
-            console.log('this is deleted');
-            vm.getRes();
-        }).catch(function (err) {
-            alert('Please log in to delete stuff!');
-            console.log('error', err);
-        })
-    }
 
     vm.getRes = function () {
         $http.get('/residencies').then(function (response) {
@@ -109,9 +98,21 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
                 console.log(answer);
                 $mdDialog.hide(answer);
             };
+    vm.deleteARes = function (resId, res) {
+        console.log('delete clicked', resId);
 
+        $http.delete('/residencies/' + resId).then(function (response) {
+            console.log('this is deleted');
+            vm.getRes();
+        }).catch(function (err) {
+            alert('Please log in to delete stuff!');
+            console.log('error', err);
+        })
+    }
             
         });
+
+
 
 
     

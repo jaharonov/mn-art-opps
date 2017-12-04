@@ -97,11 +97,13 @@ router.put('/todos/:id', (req, res) => {
         }
 
     })
-
+});
 
 //delete review 
 router.delete('/:id', function (req, res) {
+    
     var resId = req.params.id;
+    console.log('req', resId);
     if (req.isAuthenticated()) {
         // send back user object from database
         console.log('logged in', req.user);
@@ -109,7 +111,7 @@ router.delete('/:id', function (req, res) {
             username: req.user.username
         };
 
-        resObject.findByIdAndRemove({ 'id': resId }, function (err, data) {
+        resObject.findByIdAndRemove({ '_id': resId }, function (err, data) {
             if (err) {
                 console.log('error' + err);
                 res.sendStatus(500);
@@ -125,6 +127,6 @@ router.delete('/:id', function (req, res) {
     }
 })
 
-});
+
     
 module.exports = router;
