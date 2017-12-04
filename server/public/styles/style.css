@@ -167,6 +167,28 @@ md-checkbox {
   font-family: 'Abel', sans-serif;
   font-size: 24px;
   background-color: lightgray;
+  clip-path: polygon(0 0, 92% 5%, 100% 100%, 0 90%);
+  animation: polygons 7s alternate infinite;
+}
+
+@keyframes polygons {
+  50% {
+    clip-path: polygon(0 0, 92% 5%, 100% 100%, 0 95%);
+    /* clip-path: polygon(0 0, 92% 5%, 100% 100%, 0 90%); */
+    background: pink;
+  }
+  /* 50% {
+    clip-path: polygon(0 0, 95% 100%, 100% 100%, 0 90%);
+    background: orange;
+  }
+  75% {
+    clip-path: polygon(0 0, 95% 100%, 100% 100%, 0 90%);
+    background: cornflowerblue;
+  } */
+
+
+/*   
+  clip-path: polygon(0 0, 92% 5%, 100% 100%, 0 90%); */
   /* background: repeating-radial-gradient(
   circle,
   #f06292,
@@ -174,6 +196,10 @@ md-checkbox {
   lightgray 10px, 
   lightgray 20px); */
 
+}
+
+.md-nav-bar {
+  padding-left: 20px;
 }
 
 
