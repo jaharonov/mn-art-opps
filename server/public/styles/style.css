@@ -132,6 +132,9 @@ md-card {
 
 .landingTitles {
   background-color:cyan;
+  font-family: 'Abel', sans-serif;
+  font-size: 30px;
+  
   
 }
 
@@ -159,4 +162,19 @@ md-checkbox {
   padding-left: 75px;
 }
 
+.landingCard {
+  height: 300px;
+  font-family: 'Abel', sans-serif;
+  font-size: 24px;
+  background-color: lightgray;
+  /* background: repeating-radial-gradient(
+  circle,
+  #f06292,
+  #f06292 10px,
+  lightgray 10px, 
+  lightgray 20px); */
 
+}
+
+
+	

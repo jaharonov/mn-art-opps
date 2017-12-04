@@ -59,10 +59,10 @@ myApp.controller('ResController', function ($scope, UserService, ResService, $ht
         })
     }
 
-    vm.deleteBtn = function (id) {
+    vm.deleteARes = function (resId, res) {
         console.log('delete clicked');
 
-        $http.delete('/review/' + id).then(function (response) {
+        $http.delete('/residency/' + id).then(function (response) {
             console.log('this is deleted');
             vm.getRes();
         }).catch(function (err) {

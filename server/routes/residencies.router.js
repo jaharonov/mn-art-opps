@@ -101,7 +101,7 @@ router.put('/todos/:id', (req, res) => {
 
 //delete review 
 router.delete('/:id', function (req, res) {
-    var userId = req.params.id;
+    var resId = req.params.id;
     if (req.isAuthenticated()) {
         // send back user object from database
         console.log('logged in', req.user);
@@ -109,7 +109,7 @@ router.delete('/:id', function (req, res) {
             username: req.user.username
         };
 
-        reviewObject.findByIdAndRemove({ '_id': userId }, function (err, data) {
+        resObject.findByIdAndRemove({ 'id': resId }, function (err, data) {
             if (err) {
                 console.log('error' + err);
                 res.sendStatus(500);
