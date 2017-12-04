@@ -206,11 +206,20 @@ md-checkbox {
 
 .md-nav-bar {
   padding-left: 20px;
+  
 }
 
 .todos {
   margin: 30px;
 }
+
+#log {
+  margin-right: 40px;
+}
+
+
+
+
 
 
 	
