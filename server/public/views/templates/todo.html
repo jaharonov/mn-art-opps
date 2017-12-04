@@ -1,5 +1,5 @@
 <div ng-cloak>
-    <div ng-repeat="userName in uc.userObject track by $index">
+    <div ng-repeat="userName in uc.userObject track by $index" class="todos">
         <div ng-repeat="todos in userName">
             <md-checkbox><strong>{{todos.name}}</strong>
             <span> {{todos.deadline | date}}</span></md-checkbox>
