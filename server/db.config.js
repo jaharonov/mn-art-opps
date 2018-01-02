@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // Mongo Connection //
-var mongoURI = '';
+var mongoURI = 'mongodb://jaffa:213113ab@ds143342.mlab.com:43342/heroku_84kdhmr6';
 // process.env.MONGODB_URI will only be defined if you
 // are running on Heroku
 if (process.env.MONGODB_URI != undefined) {
@@ -9,7 +9,7 @@ if (process.env.MONGODB_URI != undefined) {
     mongoURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
-    mongoURI = 'mongodb://localhost:27017/databasename';
+    mongoURI = 'mongodb://localhost:27017/soloproject';
 }
 
 mongoose.connect(databaseUrl, {
